@@ -41,7 +41,24 @@ class Airplane {
 */
 
 class Person {
+  constructor (name, age) {
+    this.name = name;
+    this.age = age;
+    this.stomach = [];
+  }
 
+  talk() {
+    return `Hello, my name is ${this.name}, and I am ${this.age} years old.`
+  };
+  eat(someFood) {
+    if (this.stomach.length < 10) {
+      this.stomach.push(someFood);
+    }
+  };
+  poop() {
+    this.stomach.splice(0, this.stomach.length);
+  //  this.stomach = [];
+  }
 }
 
 /*
