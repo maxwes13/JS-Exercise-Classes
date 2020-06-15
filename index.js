@@ -146,14 +146,11 @@ class Instructor extends Lambdasian{
   }
 
   demo(subject) {
-    this.subject = subject;
-    return `Today we are learning about ${this.subject}`
+    return `Today we are learning about ${subject}`
   }
 
-  grade(attributes, subject) {
-    this.name = attributes.name;
-    this.subject = subject;
-    return `${this.name} recieves a perfect score on ${this.subject}`
+  grade(student, subject) {
+    return `${student.name} recieves a perfect score on ${subject}`
   }
 
 }
@@ -182,15 +179,23 @@ class Student extends Lambdasian {
   }
 
   listSubjects() {
-    this.favSubjects = `Loving HTML, Node, Redux, CSS, JS!`
-    return this.favSubjects
+    let strSub = `Loving`;
+    for(let i=0; i<this.favSubjects.length; i++) {
+      if(i<this.favSubjects.length -1) {
+        strSub += `${this.favSubjects[i]}` ;
+      }else{
+        strSub += `${this.favSubjects[i]}!`
+      }
+    }
+    return strSub;
   }
-  PRAssignment(attributes, subject) {
-    this.name = `Matt`;
-    this.subject = `sql`;
-    return `${this.name} has submitted a PR for ${this.subject}`
+  PRAssignment(subject) {
+    return `${this.name} has submitted a PR for ${subject}`
   }
 
+  sprintChallenge(subject) {
+    return `${this.name} has has begun Sprint Challenge on ${subject}`
+  }
 }
 
 /*
@@ -213,17 +218,12 @@ class ProjectManager extends Instructor{
     this.favInstructor = projectManagerAtts.favInstructor;
     }
   
-  standUp(channel, name) {
-    this.channel = `eu3`
-    this.name = `Dan`;
-    return `${this.name} announces to ${this.channel}, @channel standy times!`
+  standUp(channel) {
+    return `${this.name} announces to ${channel}, @channel standy times!`
   }
 
   debugsCode(student, subject) {
-    this.student = `Luke`
-    this.subject = `redux`
-    this.name = `Dan`
-    return `${this.name} debugs ${this.student}'s code on ${this.subject}`
+    return `${this.name} debugs ${student.name}'s code on ${subject}`
   }
 }
 
